@@ -1,0 +1,21 @@
+<h1>Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Doctor</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to category.title, category %></td>
+        <td><%= category.user.name %></td>
+        <td><%= category.user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

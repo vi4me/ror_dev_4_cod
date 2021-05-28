@@ -1,0 +1,28 @@
+<% unless !@appointment.persisted? %>
+  <p>
+    <strong>Body:</strong>
+    <%= @appointment.body %>
+  </p>
+
+  <p>
+    <strong>Closed:</strong>
+    <%= @appointment.closed %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= @appointment.category.title %>
+  </p>
+
+  <% if current_user.doctor? %>
+    <%= link_to 'Рекомендация', new_category_appointment_path(@category, parent_id: @appointment.id), remote: true %>
+  <% end %>
+
+  <% if @appointment.replies.any? %>
+      <% @appointment.replies.each do |reply| %>
+        <%= render partial: 'appointments/reply', locals: { reply: reply } %>
+      <% end %>
+  <% end %>
+    <% @appointment.update_attribute(:closed, true) %>
+  <div id="reply-form-<%= @appointment.id %>"></div>
+<% end %>

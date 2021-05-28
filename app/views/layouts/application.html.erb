@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RorDev4Cod</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
+  </head>
+  <body>
+      <nav class="text-center">
+        <% if user_signed_in? %>
+          Welcome, <%= current_user.email %>
+          <%= image_tag current_user.avatar_url, style: 'height: 50px;' if current_user.avatar %>
+          <br>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+          <br>
+          <%= link_to 'My Profile', me_users_path %>
+        <% end %>
+      </nav>
+      <div class="container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p
+        <%= yield %>
+      </div>
+  </body>
+</html>

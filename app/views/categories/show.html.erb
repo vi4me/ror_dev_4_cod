@@ -1,0 +1,19 @@
+<h1>Category</h1>
+<p>
+  <strong>Title:</strong>
+  <%= @category.title %>
+</p>
+<% if can? :read, Appointment %>
+  <%= link_to 'Show', category_appointments_path(@category, @appointment) %>
+<% end %>
+<p>
+  <strong>Doctor:</strong>
+  <%= @category.user.name %>
+</p>
+
+<br>
+<% unless current_user.doctor? %>
+  <%= link_to 'Записаться', new_category_appointment_path(@category) %>
+<% end %>
+<br>
+<%= link_to 'Back', categories_path %>
