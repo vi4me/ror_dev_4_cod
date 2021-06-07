@@ -6,7 +6,8 @@ class Ability
     #
       user ||= User.new # guest user (not logged in)
       if user.doctor?
-        can :read, Category
+        can :read, Category, user_id: user.id
+        can :create, Category
         can :read, Appointment
         can :create, Appointment do |appointment|
           appointment.replies

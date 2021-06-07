@@ -6,7 +6,7 @@ ActiveAdmin.register Category do
     selectable_column
     id_column
     column "title", :title
-    column "user_id", :user_id
+    column "user", :user
 
     column "Обновлено", :updated_at
     column "Создано", :created_at
@@ -18,7 +18,7 @@ ActiveAdmin.register Category do
   form(html: { multipart: true }) do |f|
     f.inputs "Category" do
       f.input :title
-      f.input :user_id
+      f.input :user
     end
 
     f.actions

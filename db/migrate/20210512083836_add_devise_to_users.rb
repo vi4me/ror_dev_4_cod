@@ -16,8 +16,8 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.1]
       t.datetime :remember_created_at
       t.string   :name
       t.string   :avatar_file_name
-      t.string   :avatar_content_type
       t.integer  :avatar_file_size
+      t.text     :avatar_data
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false

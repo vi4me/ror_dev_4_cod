@@ -11,20 +11,47 @@
     <%= stylesheet_pack_tag 'application' %>
   </head>
   <body>
-      <nav class="text-center">
-        <% if user_signed_in? %>
-          Welcome, <%= current_user.email %>
-          <%= image_tag current_user.avatar_url, style: 'height: 50px;' if current_user.avatar %>
-          <br>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-          <br>
-          <%= link_to 'My Profile', me_users_path %>
-        <% end %>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <%= link_to image_tag("html.jpeg"), root_path, class: "navbar-brand first" %>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <% if user_signed_in? %>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'My Profile', me_users_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= image_tag current_user.avatar_url, style: 'height: 50px;' if current_user.avatar %>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+        <div class="contacts">
+          <ul class="d-flex align-items-center justify-content-start">
+            <li class="nav-item">
+              <p>Welcome, <%= current_user.email %></p>
+            </li>
+            <li class="phone-card">
+              <a href="tel:380992826000"><%= image_tag "phone.svg", id: "phone" %></a>
+            </li>
+            <li class="nav-item">
+              <p>+38 (099) 282-60-00</p>
+            </li>
+          </ul>
+        </div>
       </nav>
-      <div class="container">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p
-        <%= yield %>
-      </div>
+    </header>
+
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p
+      <%= yield %>
+    </div>
   </body>
 </html>

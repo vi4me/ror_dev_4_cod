@@ -13,7 +13,7 @@
   <tbody>
     <% @appointments.each do |appointment| %>
       <tr>
-        <td><%= link_to appointment.body.truncate(10, :omission => "..."), category_appointment_path(@category, appointment) %></td>
+        <td><%= link_to appointment.body.truncate(10, :omission => "..."), category_appointment_path(@category, appointment), class: "appointment_body" %></td>
         <td><%= appointment.closed %></td>
         <td><%= appointment.category.title %></td>
       </tr>

@@ -1,21 +1,27 @@
-<h1>Categories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Doctor</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div>
+  <div class="category-title text-center">
+    <h3>Categories</h3>
+  </div>
+  <div class="row">
     <% @categories.each do |category| %>
-      <tr>
-        <td><%= link_to category.title, category %></td>
-        <td><%= category.user.name %></td>
-        <td><%= category.user.email %></td>
-      </tr>
+      <div class="col-4 col-md-5 category text-center">
+          <div class="category__img">
+            <%= image_tag category.user.avatar_url, class: "img-fluid" %>
+          </div>
+          <div class="category__email">
+            <h4><%= category.user.email %></h4>
+          </div>
+          <div class="category__name">
+            <p><%= category.user.name %></p>
+          </div>
+
+          <div class="category_link">
+            <div class="link"><%= link_to category.title, category, class: "category_link" %></div>
+
+          </div>
+          <%= button_to "Show", category, class: "btn btn-success" %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+
+</div>

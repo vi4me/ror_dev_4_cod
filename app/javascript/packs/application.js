@@ -12,3 +12,10 @@ import "../stylesheets/application.scss";
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import "bootstrap"
+require('jquery')
+import $ from 'jquery';
+global.$ = jQuery;
+import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap-daterangepicker/daterangepicker'
