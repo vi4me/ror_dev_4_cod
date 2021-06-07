@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -31,13 +33,13 @@ gem 'devise'
 gem 'cancancan'
 gem 'activeadmin'
 gem 'shrine', '~> 3.3'
-gem "shrine-cloudinary", "~> 1.1"
+gem 'shrine-cloudinary', '~> 1.1'
 gem 'image_processing', '~> 1.2'
 gem 'rubocop', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'

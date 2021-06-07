@@ -1,5 +1,6 @@
-class UsersController < ApplicationController
+# frozen_string_literal: true
 
+class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def me
@@ -13,8 +14,7 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:email, :password, :name, :avatar, :appointment_id, :doctor)
-    end
-
+  def user_params
+    params.require(:user).permit(:email, :password, :name, :avatar, :appointment_id, :doctor)
+  end
 end

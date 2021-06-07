@@ -1,15 +1,17 @@
-require "cloudinary"
-require "shrine/storage/cloudinary"
+# frozen_string_literal: true
+
+require 'cloudinary'
+require 'shrine/storage/cloudinary'
 
 Cloudinary.config(
-  cloud_name: "dlxfc1wlp",
-  api_key:    "884144822268459",
-  api_secret: "6NgwvZji7v_lxiL54tmy5PnrpRs",
+  cloud_name: 'dlxfc1wlp',
+  api_key:    '884144822268459',
+  api_secret: '6NgwvZji7v_lxiL54tmy5PnrpRs',
 )
 
 Shrine.storages = {
-  cache: Shrine::Storage::Cloudinary.new(prefix: "test/cache"), # for direct uploads
-  store: Shrine::Storage::Cloudinary.new(prefix: "test"),
+  cache: Shrine::Storage::Cloudinary.new(prefix: 'test/cache'), # for direct uploads
+  store: Shrine::Storage::Cloudinary.new(prefix: 'test')
 }
 
 Shrine.plugin :activerecord
